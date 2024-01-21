@@ -4,8 +4,7 @@
 
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $mysqli = require "../src/connectToDataBase.php";
-        
-        $id = $_POST["id"];
+		
         $name = $_POST["name"];
         $surname = $_POST["surname"];
         $email = $_POST["email"];
@@ -13,8 +12,8 @@
         $role = $_POST["role"];
 
         try{
-            $stmt = $mysqli->prepare("UPDATE users SET name = ?, surname = ? , email = ? , password=? , role=? WHERE id = ?");
-            $stmt->bind_param("sssssi", $name, $surname ,$email ,$password, $role,$id);
+            $stmt = $mysqli->prepare("UPDATE users SET name = ?, surname = ?, email = ?, password=?, role=? WHERE id = ?");
+            $stmt->bind_param("sssssi", $name, $surname, $email, $password, $role, $_GET['id']);
 
             $stmt->execute();
         }catch(Exception $e){

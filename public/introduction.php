@@ -12,7 +12,7 @@
         <!--Stylesheets-->
         <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
         <!--Fonts & icons-->
-        <link rel="shortcut icon" type="image/ico" href="./images/favicon.ico">
+        <link rel="shortcut icon" type="image/png" href="../images/favicon.ico">
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link href="../assets/fontawesome/css/fontawesome.css" rel="stylesheet">
         <link href="../assets/fontawesome/css/brands.css" rel="stylesheet">

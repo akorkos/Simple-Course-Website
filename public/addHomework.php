@@ -71,7 +71,7 @@
                 <p>
                     Αρχείo εκφώνησης:
                     <input style="width: 210px;" id='fileName' type='text' name='fileName'
-                        placeholder="files/<όνομα_αρχείου>.<επέκταση>" required>
+                        placeholder="../files/<όνομα_αρχείου>.<επέκταση>" required>
                 </p>
                 <p>
                     Παραδοτέα: <br>

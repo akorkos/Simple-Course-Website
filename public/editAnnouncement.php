@@ -38,14 +38,23 @@
         <main class="edit-page">
             <form method="post">
                 <h2>Επεξεργασία ανακοίνωσης</h2>
-                <p>
-                    Θέμα:
-                    <input id="subject" type="text" placeholder="Θέμα" name="subject" required>
-                </p>
-                <p>
-                    Κείμενο: <br>
-                    <textarea id="main" name="main" rows="4" cols="50" placeholder="Πληροφορίες" required></textarea>
-                </p>
+                <?php
+                    $db = require "../src/connectToDataBase.php"; 
+                    $sql = "SELECT subject, text FROM announcements WHERE id = ".$_GET['id'].";";
+                    $res = $db->query($sql);
+
+                    $query = mysqli_fetch_row($res);
+
+                    echo '
+                        <p>
+                            Θέμα:
+                            <input id="subject" type="text" placeholder="Θέμα" value=\''.$query[0].'\' name="subject" required>
+                        </p>
+                        <p>
+                            Κείμενο: <br>
+                            <textarea id="main" name="main" rows="4" cols="50" placeholder="Πληροφορίες" required>'.$query[1].'</textarea>
+                        </p>';
+                ?>
                 <button>Ενημέρωση</button>
             </form>
             <div class="top-link">

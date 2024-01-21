@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        $mysqli = require "../src/connectToDataBase.php";
+        $mysqli = require "./src/connectToDataBase.php";
 
         $sql = sprintf("SELECT * FROM users WHERE email = '%s'", $mysqli->real_escape_string($_POST["email"]));
 
@@ -12,7 +12,7 @@
 
         if ($user){
             if ($_POST["password"] === $user["password"])
-                header("Location: ./introduction.php");
+                header("Location: ./public/introduction.php");
             else {
                 header("Location: ./index.php?error=1");
             }
@@ -29,12 +29,12 @@
     <head>
     <meta charset="UTF-8">
         <title>Login</title>
-        <link rel="shortcut icon" type="image/png" href="../images/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="shortcut icon" type="image/png" href="./images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="./css/index.css">
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-        <link href="../assets/fontawesome/css/fontawesome.css" rel="stylesheet">
-        <link href="../assets/fontawesome/css/brands.css" rel="stylesheet">
-        <link href="../assets/fontawesome/css/solid.css" rel="stylesheet">
+        <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+        <link href="./assets/fontawesome/css/brands.css" rel="stylesheet">
+        <link href="./assets/fontawesome/css/solid.css" rel="stylesheet">
     </head>
 
     <body>

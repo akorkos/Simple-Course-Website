@@ -51,7 +51,7 @@
                 </p>
                 <p>     
                     Θέση αρχείου εκφώνησης:
-                    <input style="width: 210px;" id='fileName' type='text' name='fileName' placeholder="files/<όνομα_αρχείου>.<επέκταση>" required>
+                    <input style="width: 210px;" id='fileName' type='text' name='fileName' placeholder="../files/<όνομα_αρχείου>.<επέκταση>" required>
                 </p>
                 <button>Προσθήκη</button>
             </form>

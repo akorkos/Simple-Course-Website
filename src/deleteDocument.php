@@ -1,5 +1,4 @@
 <?php
-    require "../src/isTutor.php";
     $db = require "../src/connectToDataBase.php";
     $id = $_GET['id']; 
 

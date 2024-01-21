@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "a17034422!";
-    $dbname = "course_site";
+    $servername = "webpagesdb.it.auth.gr:3306";
+    $username = "alexkork";
+    $password = "VdSzBz2006";
+    $dbname = "student3870partB";
     
     $db = new mysqli($servername, $username, $password, $dbname);
 
