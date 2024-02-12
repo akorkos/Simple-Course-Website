@@ -3,10 +3,10 @@
     
     $id = $_GET['id']; 
 
-    $sql = "DELETE FROM documents WHERE id=$id";
+    $query = "DELETE FROM documents WHERE id=$id";
     $stmt = $db->stmt_init();
-    $stmt->prepare($sql);
+    $stmt->prepare($query);
     $stmt->execute();
-    header("location: ../public/documents.php"); 
+    header("Location: ../public/documents.php"); 
     exit;
 ?>

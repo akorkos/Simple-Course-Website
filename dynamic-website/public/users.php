@@ -63,8 +63,8 @@
                 <?php
                     $db = require "../src/connectToDataBase.php";
                     $sql = "SELECT id, name, surname, email, password, role 
-                            FROM users WHERE role = 'student';";
-                    $res = $db->query($sql);
+                        FROM users WHERE role = 'student';";
+                    $result = $db->query($sql);
 
                     echo '
                         <li class="list-box doc-box">
@@ -74,34 +74,34 @@
                         </li>
                     ';
 
-                    while ($x = mysqli_fetch_row($res)) {
+                    while ($row = mysqli_fetch_row($result)) {
                         echo '
                             <li class="list-box users-box">
                                 <h2>
-                                    Χρήστης (ID): '.$x[0].'
-                                    <a href="../src/deleteUser.php?id='.$x[0].'"><i class="fa-solid fa-user-xmark"
+                                    Χρήστης (ID): '.$row[0].'
+                                    <a href="../src/deleteUser.php?id='.$row[0].'"><i class="fa-solid fa-user-xmark"
                                         title="Διαγραφή χρήστη"></i></a>
-                                    <a href="./editUsers.php?name='.$x[1].'&surname='.$x[2].'&email='.$x[3].'
-                                        &password='.$x[4].'&id='.$x[0].'"><i class="fa-solid fa-user-pen" 
+                                    <a href="./editUsers.php?name='.$row[1].'&surname='.$row[2].'&email='.$row[3].'
+                                        &password='.$row[4].'&id='.$row[0].'"><i class="fa-solid fa-user-pen" 
                                         title="Επεξεργασία χρήστη"></i></a>
                                 </h2>
                                 <h3>
                                     <span class="bold-text">Στοιχεία: </span>
                                 </h3>
                                 <p> 
-                                    Όνομα: '.$x[1].'
+                                    Όνομα: '.$row[1].'
                                 </p>
                                 <p> 
-                                    Επώνυμο: '.$x[2].'
+                                    Επώνυμο: '.$row[2].'
                                 </p>
                                 <p> 
-                                    Email: '.$x[3].'
+                                    Email: '.$row[3].'
                                 </p>
                                 <p> 
-                                    Κωδικός: '.$x[4].'
+                                    Κωδικός: '.$row[4].'
                                 </p>
                                 <p> 
-                                    Ρόλος: '.$x[5].'
+                                    Ρόλος: '.$row[5].'
                                 </p>
                             </li>
                         ';   

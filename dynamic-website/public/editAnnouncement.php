@@ -33,7 +33,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
         <title>Επεξεργασία ανακοίνωσης</title>
+        
         <link rel="stylesheet" type="text/css" media="screen" 
             href="../css/style.css"/>
         <link rel="shortcut icon" type="image/png" href="../images/favicon.ico">
@@ -50,11 +52,11 @@
                 <h2>Επεξεργασία ανακοίνωσης</h2>
                 <?php
                     $db = require "../src/connectToDataBase.php"; 
-                    $sql = "SELECT subject, text FROM announcements WHERE 
-                            id = ".$_GET['id'].";";
-                    $res = $db->query($sql);
+                    $query = "SELECT subject, text FROM announcements WHERE 
+                        id = ".$_GET['id'].";";
+                    $result = $db->query($query);
 
-                    $query = mysqli_fetch_row($res);
+                    $query = mysqli_fetch_row($result);
 
                     echo'
                         <p>

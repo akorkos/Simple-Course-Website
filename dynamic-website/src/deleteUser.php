@@ -3,10 +3,10 @@
 
     $id = $_GET['id']; 
 
-    $sql = "DELETE FROM users WHERE id=$id";
+    $query = "DELETE FROM users WHERE id=$id";
     $stmt = $mysqli->stmt_init();
-    $stmt->prepare($sql);
+    $stmt->prepare($query);
     $stmt->execute();
-    header("location: ../public/users.php"); 
+    header("Location: ../public/users.php"); 
     exit;
 ?>

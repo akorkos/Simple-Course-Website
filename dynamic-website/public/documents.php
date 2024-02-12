@@ -13,7 +13,6 @@
 
         <link rel="stylesheet" type="text/css" media="screen" 
             href="../css/style.css" />
-  
         <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico">
         <link href='https://fonts.googleapis.com/css?family=Inter' 
             rel='stylesheet'>
@@ -75,43 +74,43 @@
                             </li>
                         ';
                 
-                        while ($x = mysqli_fetch_row($query)){
+                        while ($row = mysqli_fetch_row($query)){
                             echo '
                                 <li class="list-box doc-box">
                                 
                                 <h2>
-                                    '.$x[1].'
-                                    <a href="../src/deleteDocument.php?id='.$x[0].'"><i title="Delete document" 
+                                    '.$row[1].'
+                                    <a href="../src/deleteDocument.php?id='.$row[0].'"><i title="Delete document" 
                                     class="fa-solid fa-trash-can"></i></a>
                                     <a href="./editDocument.php?subject=
-                                        '.str_replace(' ', '&nbsp;', $x[2]).'&text='.$x[3].'&id='.$x[0].'"> 
+                                        '.str_replace(' ', '&nbsp;', $row[2]).'&text='.$row[3].'&id='.$row[0].'"> 
                                         <i class="fa-solid fa-pen-to-square" title="Edit document"></i>
                                     </a>    
                                 </h2>
                                 <p>
                                     <span class="bold-text">
                                         Περιγραφή: 
-                                    </span> '.$x[2].'
+                                    </span> '.$row[2].'
                                 </p>
                                 <p>
-                                    <a href="'.$x[3].'">Download</a>
+                                    <a href="'.$row[3].'">Download</a>
                                 </p>
                             </li>';
                         }
                     } else {
-                        while ($x = mysqli_fetch_row($query)){
+                        while ($row = mysqli_fetch_row($query)){
                             echo '
                                 <li class="list-box doc-box">
                                     <h2>
-                                        '.$x[1].' 
+                                        '.$row[1].' 
                                     </h2>
                                     <p>
                                         <span class="bold-text">
                                             Περιγραφή: 
-                                        </span> '.$x[2].'
+                                        </span> '.$row[2].'
                                     </p>
                                     <p>
-                                        <a href="'.$x[3].'">Download</a>
+                                        <a href="'.$row[3].'">Download</a>
                                     </p>
                                 </li>
                             ';

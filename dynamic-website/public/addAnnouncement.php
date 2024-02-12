@@ -5,15 +5,17 @@
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $db = require "../src/connectToDataBase.php";
         
-        $sql = "INSERT INTO announcements (date, subject, text) 
-                VALUES (?, ?, ?)";
+        $query = "INSERT INTO announcements (date, subject, text) 
+            VALUES (?, ?, ?)";
     
         $stmt = $db->stmt_init();
-        $stmt->prepare($sql);
-        $stmt->bind_param("sss", date("Y/m/d"), 
-                            $_POST["subject"], 
-                            $_POST["text"]
-                        );
+        $stmt->prepare($query);
+        $stmt->bind_param(
+            "sss",
+            date("Y/m/d"), 
+            $_POST["subject"], 
+            $_POST["text"]
+        );
         $stmt->execute();
         header("Location: ../public/announcement.php");
         exit;

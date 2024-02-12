@@ -13,7 +13,7 @@
 
         <link rel="stylesheet" type="text/css" media="screen" 
             href="../css/style.css"/>
-        <!--Fonts & icons-->
+
         <link rel="shortcut icon" type="image/png" href="../images/favicon.ico">
         <link href='https://fonts.googleapis.com/css?family=Inter'
             rel='stylesheet'>
@@ -41,13 +41,14 @@
             </a>
             <?php
                 $db = require "../src/connectToDataBase.php"; 
-                if($_SESSION['role'] === 'tutor')
+                if($_SESSION['role'] === 'tutor'){
                     echo"
                         <a href='./users.php'>
                             <i class='fa-solid fa-user-pen'></i> 
                             Διαχείριση χρηστών
                         </a>
                     ";
+                }
             ?>
             <a href="../src/logout.php">
                 <i class="fa-solid fa-right-from-bracket"></i> Αποσύνδεση
@@ -60,7 +61,7 @@
                 <?php
                     $db = require "../src/connectToDataBase.php"; 
                     $sql = "SELECT id, targets, file_name, files_needed, 
-                            deadline FROM homeworks;";
+                        deadline FROM homeworks;";
                     $query = $db->query($sql);
 
                     if ($_SESSION['role'] === 'tutor'){
@@ -74,65 +75,65 @@
                             </li>
                         ';
         
-                        while ($x = mysqli_fetch_row($query)) {
+                        while ($row = mysqli_fetch_row($query)) {
                             echo'
                                 <li class="list-box homework-box">
                                     <h2>
-                                        Εργασία '.$x[0].'
-                                        <a href="../src/deleteHomework.php?id='.$x[0].'"><i title="Delete homework" 
+                                        Εργασία '.$row[0].'
+                                        <a href="../src/deleteHomework.php?id='.$row[0].'"><i title="Delete homework" 
                                             class="fa-solid fa-trash-can"></i></a>
                                         <a href="./editHomework.php?file_name=
-                                            '.str_replace(' ', '&nbsp;', $x[2]).'&targets='.$x[1].'&id='.$x[0].'
-                                            &files_needed='.$x[3].'&deadline='.$x[4].'">
+                                            '.str_replace(' ', '&nbsp;', $row[2]).'&targets='.$row[1].'&id='.$row[0].'
+                                            &files_needed='.$row[3].'&deadline='.$row[4].'">
                                             <i class="fa-solid fa-pen-to-square" title="Edit homework"></i></a>
                                     </h2>
                                     <h3>
                                         <span class="bold-text">Στόχοι: </span>
                                     </h3>
                                     <div>
-                                        '.nl2br($x[1]).'
+                                        '.nl2br($row[1]).'
                                     </div>
                                     <h3 class="bold-text">Εκφώνηση:</h3>
                                     <p>
                                         Κατεβάστε την εκφώνηση της εργασίας από 
-                                        <a href="'.$x[2].'"> εδώ</a>.
+                                        <a href="'.$row[2].'"> εδώ</a>.
                                     </p>
                                     <h3 class="bold-text">Παραδοτέα:</h3>
                                     <div>
-                                        '.nl2br($x[3]).'
+                                        '.nl2br($row[3]).'
                                     </div>
                                     <p>
                                         <span class="empasize-text">
                                             Ημερομηνία παράδοσης: 
-                                        </span>'.$x[4].'
+                                        </span>'.$row[4].'
                                     </p>
                                 </li>
                             ';
                         }
                     } else {
-                        while ($x = mysqli_fetch_row($query)) {
+                        while ($row = mysqli_fetch_row($query)) {
                             echo '
                                 <li class="list-box homework-box">
-                                    <h2> Εργασία '.$x[0].' </h2>
+                                    <h2> Εργασία '.$row[0].' </h2>
                                     <h3> 
                                         <span class="bold-text">Στόχοι: </span>
                                     </h3>
                                     <div>
-                                        '.nl2br($x[1]).'
+                                        '.nl2br($row[1]).'
                                     </div>
                                     <h3 class="bold-text">Εκφώνηση:</h3>
                                     <p>
                                         Κατεβάστε την εκφώνηση της εργασίας από 
-                                        <a href="'.$x[2].'"> εδώ</a>.
+                                        <a href="'.$row[2].'"> εδώ</a>.
                                     </p>
                                     <h3 class="bold-text">Παραδοτέα:</h3>
                                     <div>
-                                        '.nl2br($x[3]).'
+                                        '.nl2br($row[3]).'
                                     </div>
                                     <p>
                                         <span class="emphasize-text">
                                             Ημερομηνία παράδοσης: 
-                                        </span>'.$x[4].'
+                                        </span>'.$row[4].'
                                     </p>
                                 </li>
                             ';

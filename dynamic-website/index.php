@@ -12,9 +12,12 @@
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $mysqli = require "./src/connectToDataBase.php";
 
-        $sql = sprintf("SELECT * FROM users WHERE email = '%s'", $mysqli->real_escape_string($_POST["email"]));
+        $query = sprintf(
+            "SELECT * FROM users WHERE email = '%s'", 
+            $mysqli->real_escape_string($_POST["email"])
+        );
 
-        $result = $mysqli->query($sql);
+        $result = $mysqli->query($query);
         $user = $result->fetch_assoc();
         $_SESSION['role'] = $user['role'];
         $_SESSION['valid'] = true;
@@ -36,8 +39,10 @@
 <!DOCTYPE html>
 <html lang="el">
     <head>
-    <meta charset="UTF-8">
-        <title>Login</title>
+        <meta charset="UTF-8">
+
+        <title>Υπηρεσία ηλεκτρονικών μαθημάτων: Σύνδεση στον ιστότοπο</title>
+
         <link rel="shortcut icon" type="image/png" href="./images/favicon.ico">
         <link rel="stylesheet" type="text/css" href="./css/index.css">
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
@@ -64,7 +69,7 @@
                     </div>
                     <input id="password" placeholder="Password" type="password" name="password" required class="validate">
                 </div>
-                <input type="submit" value="Είσοδος" />
+                <input type="submit" value="Είσοδος"/>
             </form>
         </main>
     </body>

@@ -38,7 +38,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <title>Διαχείριση εργασιών</title>
+        
         <link rel="stylesheet" type="text/css" media="screen" 
             href="../css/style.css"/>
         <link rel="shortcut icon" type="image/ico" href="./images/favicon.ico">
@@ -55,16 +57,16 @@
                 <h2>Επεξεργασία εργασίας</h2>
                 <?php
                     $db = require "../src/connectToDataBase.php";
-                    $sql = "SELECT targets, file_name, files_needed, 
-                            deadline FROM homeworks WHERE id = ".$_GET['id'].";";
-                    $res = $db->query($sql);
-                    $x = mysqli_fetch_row($res);
+                    $query = "SELECT targets, file_name, files_needed, 
+                        deadline FROM homeworks WHERE id = ".$_GET['id'].";";
+                    $result = $db->query($query);
+                    $row = mysqli_fetch_row($result);
 
                     echo'
                         <p>
                             Στόχοι: <br>
                             <textarea id="targets" name="targets" rows="4"
-                                cols="50" required>'.$x[0].'
+                                cols="50" required>'.$row[0].'
                             </textarea>
                         </pr>
                         <p>
@@ -72,19 +74,19 @@
                             <input id="file-name" type="text" name="file-name" 
                                 style="width: 210px;" 
                                 placeholder="files/<όνομα_αρχείου>.<επέκταση>" 
-                                value='.$x[1].' required>
+                                value='.$row[1].' required>
                         </p>
                         <p> 
                             Παραδοτέα: <br>
                             <textarea id="file-submissions" 
                                 name="file-submissions" rows="4" cols="50" 
-                                required>'.$x[2].'
+                                required>'.$row[2].'
                             </textarea>
                         </p>
                         <p>
                             Ημερομηνία:
                             <input id="date" type="date" name="date" 
-                                value='.$x[3].' required>
+                                value='.$row[3].' required>
                         </p>
                     ';
                 ?>

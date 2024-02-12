@@ -57,7 +57,7 @@
             <?php
                 $db = require "../src/connectToDataBase.php"; 
                 $sql = "SELECT id, date, subject, text FROM announcements;";
-                $res = $db->query($sql);
+                $result = $db->query($sql);
 
                 echo "
                     <h1>Ανακοινώσεις</h1>
@@ -74,45 +74,45 @@
                             </h2>
                         </li>"; 
 
-                    while ($query = mysqli_fetch_row($res)) {
+                    while ($row = mysqli_fetch_row($result)) {
                         echo '
                             <li class="list-box">
                                 <h2>
-                                    Ανακοίνωση '.$query[0].'
-                                    <a href="../src/deleteAnnouncement.php?id='.$query[0].'">
+                                    Ανακοίνωση '.$row[0].'
+                                    <a href="../src/deleteAnnouncement.php?id='.$row[0].'">
                                         <i title="Διαγραφή ανακοίνωσης"
                                             class="fa-solid fa-trash-can"></i>
                                     </a>
                                     <a href="./editAnnouncement.php?subject=
-                                        '.str_replace(' ', '&nbsp;', $query[2]).'&text='.$query[3].'&id='.$query[0].'"> 
+                                        '.str_replace(' ', '&nbsp;', $row[2]).'&text='.$row[3].'&id='.$row[0].'"> 
                                         <i class="fa-solid fa-pen-to-square" title="Επεξεργασία ανακοίνωσης"></i>
                                     </a>
                                 </h2>
                                 <p>
                                     <span class="bold-text">Ημερομηνία: </span>
-                                    '.$query[1].'
+                                    '.$row[1].'
                                 </p>
                                 <p class="subject">
                                     <span class="bold-text">Θέμα: </span>
-                                    '.$query[2].'
+                                    '.$row[2].'
                                 </p>
-                                <p>'.$query[3].'</p>
+                                <p>'.$row[3].'</p>
                             </li>'; 
                     }
                 }
-                while ($query = mysqli_fetch_row($res)) {
+                while ($row = mysqli_fetch_row($result)) {
                     echo '
                         <li class="list-box">
-                            <h2>Ανακοίνωση '.$query[0].'</h2>
+                            <h2>Ανακοίνωση '.$row[0].'</h2>
                             <p>
                                 <span class="bold-text">Ημερομηνία: </span>
-                                '.$query[1].'
+                                '.$row[1].'
                             </p>
                             <p class="subject">
                                 <span class="bold-text">Θέμα: </span>
-                                '.$query[2].'
+                                '.$row[2].'
                             </p>
-                            <p>'.$query[3].'</p>
+                            <p>'.$row[3].'</p>
                         </li>'; 
                 }
                 echo "</ul>";

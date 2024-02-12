@@ -8,10 +8,9 @@
         $subject = $_POST["subject"];
         $message = $_POST["message"];
 
-        $tutors = mysqli_query(
-            $db, 
-            "SELECT email FROM users WHERE role = 'tutor'"
-        );
+        $query = "SELECT email FROM users WHERE role = 'tutor'";
+
+        $tutors = db->query($query);
 
         if (mysqli_num_rows($tutors) > 0){
             while($row = mysqli_fetch_assoc($tutors)){

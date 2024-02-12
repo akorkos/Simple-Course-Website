@@ -3,10 +3,10 @@
 
     $id = $_GET['id']; 
 
-    $sql = "DELETE FROM announcements WHERE id = $id";
+    $query = "DELETE FROM announcements WHERE id = $id";
     $stmt = $db->stmt_init();
-    $stmt->prepare($sql);
+    $stmt->prepare($query);
     $stmt->execute();
-    header("location: ../public/announcement.php"); 
+    header("Location: ../public/announcement.php"); 
     exit;
 ?>

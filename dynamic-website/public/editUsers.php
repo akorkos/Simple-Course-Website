@@ -44,7 +44,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <title>Διαχείριση χρηστών</title>
+        
         <link rel="stylesheet" type="text/css" media="screen" 
             href="../css/style.css"/>
         <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico">
@@ -61,10 +63,10 @@
                 <h1>Επεξεργασία χρήστη</h1>
                 <?php
                     $db = require "../src/connectToDataBase.php";
-                    $sql = "SELECT name, surname, email, password, role FROM 
-                            users WHERE id = ".$_GET['id'].";";
-                    $res = $db->query($sql);
-                    $x = mysqli_fetch_row($res);
+                    $query = "SELECT name, surname, email, password, role FROM 
+                        users WHERE id = ".$_GET['id'].";";
+                    $result = $db->query($query);
+                    $row = mysqli_fetch_row($result);
 
                     echo'
                         <h3>
@@ -73,22 +75,22 @@
                         <p> 
                             Όνομα:
                             <input id="name" type="name" name="name" 
-                                value='.$x[0].' required>
+                                value='.$row[0].' required>
                         </p>
                         <p> 
                             Επώνυμο:
                             <input id="surname" type="surname" name="surname" 
-                                value='.$x[1].' required>
+                                value='.$row[1].' required>
                         </p>
                         <p> 
                             Email:
                             <input id="email" type="email" name="email" 
-                                value='.$x[2].' required>
+                                value='.$row[2].' required>
                         </p>
                         <p> 
                             Κωδικός:
                             <input id="pass" type="password" name="pass" 
-                                value='.$x[3].' required>
+                                value='.$row[3].' required>
                         </p>
                         <p> 
                             Ρόλος:

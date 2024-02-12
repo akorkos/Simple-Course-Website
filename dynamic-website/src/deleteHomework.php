@@ -3,11 +3,11 @@
 
     $id = $_GET['id']; 
 
-    $sql = "DELETE FROM homeworks WHERE id=$id";
+    $query = "DELETE FROM homeworks WHERE id=$id";
     $stmt = $mysqli->stmt_init();
-    $stmt->prepare($sql);
+    $stmt->prepare($query);
     $stmt->execute();
-    header("location: ../public/homework.php"); 
+    header("Location: ../public/homework.php"); 
     exit;
 
 ?>

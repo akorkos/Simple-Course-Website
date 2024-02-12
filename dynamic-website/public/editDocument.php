@@ -36,7 +36,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <title>Επεξεργασία εγγράφου</title>
+
         <link rel="stylesheet" type="text/css" media="screen" 
             href="../css/style.css"/>
         <link rel="shortcut icon" type="image/png" href="../images/favicon.ico">
@@ -54,27 +56,27 @@
                 <?php
                     
                     $db = require "../src/connectToDataBase.php";
-                    $sql = "SELECT title, description, file_name FROM documents 
-                            WHERE id = ".$_GET['id'].";";
-                    $res = $db->query($sql);
-                    $x = mysqli_fetch_row($res);
+                    $query = "SELECT title, description, file_name FROM documents 
+                        WHERE id = ".$_GET['id'].";";
+                    $result = $db->query($query);
+                    $row = mysqli_fetch_row($result);
 
                     echo'
                         <p>
                             Τίτλος:
                             <input id="title" type="text" name="title" 
-                            style="width: 210px;" required value=\''.$x[0].'\'><br>
+                            style="width: 210px;" required value=\''.$row[0].'\'><br>
                         </p>  
                         <p>
                             Κείμενο:<br>
                             <textarea id="description" name="description" 
-                                rows="4" cols="50" required>'.$x[1].'
+                                rows="4" cols="50" required>'.$row[1].'
                             </textarea><br>
                         </p>
                         <p>
                             Νέα θέση αρχείου εκφώνησης:
                             <input style="width: 210px;" id="file-name" 
-                                type="text" value='.$x[2].' 
+                                type="text" value='.$row[2].' 
                                 placeholder="files/<όνομα_αρχείου>.<επέκταση>" 
                                 name="file-name" required><br>
                         </p>  

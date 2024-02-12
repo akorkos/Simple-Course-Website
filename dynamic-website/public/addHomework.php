@@ -6,39 +6,39 @@
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $mysqli = require "../src/connectToDataBase.php";
 
-        $sql = "INSERT 
-                INTO homeworks (targets, file_name, files_needed, deadline) 
-                VALUES (?, ?, ? ,?)";
+        $query = "INSERT 
+            INTO homeworks (targets, file_name, files_needed, deadline) 
+            VALUES (?, ?, ? ,?)";
 
         $stmt = $mysqli->stmt_init();
-        $stmt->prepare($sql);
+        $stmt->prepare($query);
         $stmt->bind_param(
-                            "ssss",
-                            $_POST["targets"],
-                            $_POST["file-name"],
-                            $_POST["file-submissions"],
-                            $_POST["date"]
-                        );
+            "ssss",
+            $_POST["targets"],
+            $_POST["file-name"],
+            $_POST["file-submissions"],
+            $_POST["date"]
+        );
         $stmt->execute();
 
-        $sql= "SELECT MAX(id) FROM homeworks";
-        $res = $mysqli->query($sql);
-        $number = mysqli_fetch_array($res)[0];
+        $query= "SELECT MAX(id) FROM homeworks";
+        $result = $mysqli->query($query);
+        $homeworkId = mysqli_fetch_array($result)[0];
         
-        $subject = "Υποβλήθηκε η εργασία ".$number."";
-        $mainText = "Η ".$number."η εργασία έχει ανακοινωθεί στην ιστοσελίδα 
-                        <a href='./homework.php'>«Εργασίες»</a>.";
-        
-        $sql = "INSERT INTO announcements (date, subject, text) 
-                VALUES (?, ?, ?)";
+        $subject = "Υποβλήθηκε η εργασία ".$homeworkId."";
+        $mainText = "Η ".$homeworkId."η εργασία έχει ανακοινωθεί στην           ιστοσελίδα <a href='./homework.php'> Εργασίες</a>.";
+    
+        $query = "INSERT INTO announcements (date, subject, text) 
+            VALUES (?, ?, ?)";
 
         $stmt = $mysqli->stmt_init();
-        $stmt->prepare($sql);
-        $stmt->bind_param("sss",
-                            date("Y/m/d"),
-                            $subject,
-                            $mainText
-                        );
+        $stmt->prepare($query);
+        $stmt->bind_param(
+            "sss",
+            date("Y/m/d"),
+            $subject,
+            $mainText
+        );
         $stmt->execute();
 
         header("Location: ./homework.php");
@@ -52,7 +52,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <title>Προσθήκη νέας εργασίας</title>
+
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
         <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico">
         <link href='https://fonts.googleapis.com/css?family=Inter' 

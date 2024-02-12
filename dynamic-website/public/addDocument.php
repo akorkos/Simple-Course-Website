@@ -5,17 +5,17 @@
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $db = require "../src/connectToDataBase.php";
 
-        $sql = "INSERT INTO documents (title, description, file_name) 
-                VALUES (?, ?, ?)";
+        $query = "INSERT INTO documents (title, description, file_name) 
+            VALUES (?, ?, ?)";
 
         $stmt = $db->stmt_init();
-        $stmt->prepare($sql);
+        $stmt->prepare($query);
         $stmt->bind_param(
-                            "sss",
-                            $_POST["title"],
-                            $_POST["description"],
-                            $_POST["file-name"]
-                        );
+            "sss",
+            $_POST["title"],
+            $_POST["description"],
+            $_POST["file-name"]
+        );
         $stmt->execute();
         header("Location: ./documents.php");
         exit;
@@ -28,7 +28,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <title>Προσθήκη εγγράφου</title>
+        
         <link rel="stylesheet" type="text/css" media="screen" 
             href="../css/style.css"/>
         <link rel="shortcut icon" type="image/ico" href="./images/favicon.ico">
