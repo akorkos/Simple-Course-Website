@@ -10,7 +10,7 @@
 
         $query = "SELECT email FROM users WHERE role = 'tutor'";
 
-        $tutors = db->query($query);
+        $tutors = $db->query($query);
 
         if (mysqli_num_rows($tutors) > 0){
             while($row = mysqli_fetch_assoc($tutors)){
