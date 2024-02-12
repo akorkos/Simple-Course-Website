@@ -7,9 +7,7 @@ Department of Computer Science at Aristotle University of Thessaloniki.<br/>
 The course website can be found here: 
 
 <p align="center">
-
-[https://alexkork.webpages.auth.gr/3870partB/index.php](https://alexkork.webpages.auth.gr/3870partB/index.php)
-
+<a href="https://alexkork.webpages.auth.gr/3870partB/index.php"> https://alexkork.webpages.auth.gr/3870partB/index.php </a>
 </p>
 
 The static website directory, consists the website view for the students without
