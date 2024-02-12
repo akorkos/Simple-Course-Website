@@ -4,20 +4,20 @@
 
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $mysqli = require "../src/connectToDataBase.php";
-        
 
-        $sql = "INSERT INTO users (name ,surname ,email ,password ,role)
+        $sql = "INSERT INTO users (name, surname, email, password, role)
                 VALUES (?, ?, ?, ?, ?)";
 
         $stmt = $mysqli->stmt_init();
         $stmt->prepare($sql);
-        $stmt->bind_param("sssss",
-                          $_POST["name"],
-                          $_POST["surname"],
-                          $_POST["email"],
-                          $_POST["pass"],
-                          $_POST["role"]);
-
+        $stmt->bind_param(
+                            "sssss",
+                            $_POST["name"],
+                            $_POST["surname"],
+                            $_POST["email"],
+                            $_POST["password"],
+                            $_POST["role"]
+                        );
         try{                  
             $stmt->execute();
         }catch(Exception $e){
@@ -33,14 +33,14 @@
 <html lang="el">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- mobile first -->    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Διαχείριση χρηστών</title>
-        <!--Stylesheets-->
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
-        <!--Fonts & icons-->
+        <link rel="stylesheet" type="text/css" media="screen" 
+            href="../css/style.css"/>
         <link rel="shortcut icon" type="image/ico" href="./images/favicon.ico">
-        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Inter' 
+            rel='stylesheet'>
         <link href="../assets/fontawesome/css/fontawesome.css" rel="stylesheet">
         <link href="../assets/fontawesome/css/brands.css" rel="stylesheet">
         <link href="../assets/fontawesome/css/solid.css" rel="stylesheet">
@@ -65,7 +65,8 @@
                 </p>
                 <p> 
                     Κωδικός:
-                    <input id="pass" type="password" name="pass" required>
+                    <input id="password" type="password" name="password" 
+                        required>
                 </p>
                 <p> 
                     Ρόλος:
@@ -78,7 +79,10 @@
                 </p>
             </form>
             <div class="top-link">
-                Back to <a href="./introduction.php"><i class="fa-solid fa-house"></i></a> 
+                Back to 
+                <a href="./introduction.php">
+                    <i class="fa-solid fa-house"></i>
+                </a> 
             </div>
         </main>
     </body>

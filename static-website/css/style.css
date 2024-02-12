@@ -1,11 +1,18 @@
 html, body {
   height: 100%;
+  width:100%;
   margin: 0;
 }
 
 body {
   font-family: 'Inter';
   font-size: 16px;
+  display:flex;
+}
+
+body.login-page{
+  background-color: #f7f9fb;
+	font-size: 14px;
 }
  
 /* The side navigation menu */
@@ -45,7 +52,6 @@ main {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
   width: calc(100% - 300px);
   margin-left: 250px;
@@ -58,6 +64,10 @@ main h1 {
 
 main > div {
   margin-bottom: 20px;
+}
+
+main > a {
+  text-decoration: none !important;
 }
 
 .top-link {
@@ -100,6 +110,8 @@ main > div {
   padding-bottom: 5px; /* Each element has 5px bottom margin */
   width: 50vw; 
   max-width: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .list-box h2 {
@@ -167,3 +179,18 @@ ul > .list-box {
 .contact-box > * {
   margin-bottom: 25px;
 }
+
+.add-page{
+  border: solid 3px #ff3860;
+  border-radius: 6px;
+  margin: 10% 35% auto 35%;
+  text-align: left;
+}
+
+.edit-page{
+  border: solid 3px #ff3860;
+  border-radius: 6px;
+  margin: 10% 35% auto 35%;
+  text-align: left;
+}
+

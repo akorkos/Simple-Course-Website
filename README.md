@@ -17,7 +17,7 @@ MariaDB and PHP.
 
 All the website files are written in PHP while containing HTML code. The default
 page (index.php) acts as a login page. There are two types of users (Tutor,
-Student) with their credentials shown bellow
+Student) with their credentials shown bellow:
 
 
 | Email | Password | Role |
@@ -26,3 +26,6 @@ Student) with their credentials shown bellow
 | stergio@auth.gr | 123 | Tutor |
 | tsagkar@auth.gr | 123  | Student  |
 | tzoun@auth.gr | 123 | Student |
+
+The website, uses an SQL DB which stores all the users. Additionally, the DB 
+contains homeworks, announcements and documents. 

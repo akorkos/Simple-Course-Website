@@ -1,5 +1,6 @@
 <?php
     $db = require "../src/connectToDataBase.php";
+    
     $id = $_GET['id']; 
 
     $sql = "DELETE FROM documents WHERE id=$id";
