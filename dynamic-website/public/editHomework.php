@@ -14,7 +14,7 @@
             "UPDATE homeworks SET targets = ?, file_name = ?, files_needed = ?, 
             deadline=? WHERE id = ?"
         );
-        
+
         $stmt->bind_param(
             "ssssi", 
             $targets, 
@@ -23,8 +23,6 @@
             $deadline, 
             $_GET['id']
         );
-
-        $stmt->execute();
 
         $stmt->execute();
         header("Location: ./homework.php");

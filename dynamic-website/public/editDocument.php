@@ -23,8 +23,6 @@
         );
         
         $stmt->execute();
-
-        $stmt->execute();
         header("Location: ./documents.php");
         exit;
     }

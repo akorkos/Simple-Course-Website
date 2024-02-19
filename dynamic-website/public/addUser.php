@@ -18,12 +18,9 @@
             $_POST["password"],
             $_POST["role"]
         );
-        try{                  
-            $stmt->execute();
-        }catch(Exception $e){
-            header("Location: ./users.php");
-            exit;
-        };
+                      
+        $stmt->execute();
+        
         header("Location: ./users.php");
         exit;
     }

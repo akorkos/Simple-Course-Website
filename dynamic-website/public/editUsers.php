@@ -10,28 +10,24 @@
         $email = $_POST["email"];
         $password = $_POST["pass"];
         $role = $_POST["role"];
+        $id = $_GET['id'];
 
-        try{
-            $stmt = $mysqli->prepare(
-                "UPDATE users SET name = ?, surname = ?, email = ?, password=?, 
-                role=? WHERE id = ?"
-            );
+        $stmt = $mysqli->prepare(
+            "UPDATE users SET name = ?, surname = ?, email = ?, password=?, 
+            role=? WHERE id = ?"
+        );
 
-            $stmt->bind_param(
-                "sssssi",
-                $name, 
-                $surname, 
-                $email, 
-                $password, 
-                $role, 
-                $_GET['id']
-            );
+        $stmt->bind_param(
+            "sssssi",
+            $name, 
+            $surname, 
+            $email, 
+            $password, 
+            $role, 
+            $id
+        );
 
-            $stmt->execute();
-        }catch(Exception $e){
-            header("Location: ./users.php");
-            exit;
-        };
+        $stmt->execute();
         
         header("Location: ./users.php");
         exit;

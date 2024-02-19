@@ -18,8 +18,6 @@
             $main, 
             $_GET['id']
         );
-        
-        $stmt->execute();
 
         $stmt->execute();
         header("Location: ../public/announcement.php");

@@ -45,7 +45,8 @@
 
         <link rel="shortcut icon" type="image/png" href="./images/favicon.ico">
         <link rel="stylesheet" type="text/css" href="./css/index.css">
-        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Inter' 
+            rel='stylesheet'>
         <link href="./assets/fontawesome/css/fontawesome.css" rel="stylesheet">
         <link href="./assets/fontawesome/css/brands.css" rel="stylesheet">
         <link href="./assets/fontawesome/css/solid.css" rel="stylesheet">
@@ -61,13 +62,15 @@
                     <div class="input-addon">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <input id="email" placeholder="Email" type="email" name="email" required class="validate">
+                    <input id="email" placeholder="Email" type="email" 
+                        name="email" required class="validate">
                 </div>
                 <div class="input">
                     <div class="input-addon">
                         <i class="fa-solid fa-key"></i>
                     </div>
-                    <input id="password" placeholder="Password" type="password" name="password" required class="validate">
+                    <input id="password" placeholder="Password" type="password" 
+                        name="password" required class="validate">
                 </div>
                 <input type="submit" value="Είσοδος"/>
             </form>

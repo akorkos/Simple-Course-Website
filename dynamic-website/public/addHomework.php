@@ -1,7 +1,6 @@
 <?php
     require "../src/isAuth.php";
     require "../src/isTutor.php";
-    
 
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $mysqli = require "../src/connectToDataBase.php";
@@ -21,12 +20,13 @@
         );
         $stmt->execute();
 
-        $query= "SELECT MAX(id) FROM homeworks";
+        $query = "SELECT MAX(id) FROM homeworks";
         $result = $mysqli->query($query);
         $homeworkId = mysqli_fetch_array($result)[0];
         
         $subject = "Υποβλήθηκε η εργασία ".$homeworkId."";
-        $mainText = "Η ".$homeworkId."η εργασία έχει ανακοινωθεί στην           ιστοσελίδα <a href='./homework.php'> Εργασίες</a>.";
+        $mainText = "Η ".$homeworkId."η εργασία έχει ανακοινωθεί στην 
+            ιστοσελίδα <a href='./homework.php'> Εργασίες</a>.";
     
         $query = "INSERT INTO announcements (date, subject, text) 
             VALUES (?, ?, ?)";
