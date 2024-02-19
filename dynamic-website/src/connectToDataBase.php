@@ -1,7 +1,7 @@
 <?php
-    $servername = "webpagesdb.it.auth.gr:3306";
+    $servername = "localhost";
     $username = "alexkork";
-    $password = "VdSzBz2006";
+    $password = "";
     $dbname = "student3870partB";
     
     $db = new mysqli($servername, $username, $password, $dbname);
