@@ -1,12 +1,3 @@
-<!--
-    https://alexkork.webpages.auth.gr/3870partB/
-
-    kork@auth.gr, 123, Tutor
-    stergio@auth.gr, 123, Tutor
-    tsagkar@auth.gr, 123, Student
-    tzoun@auth.gr, 123, Student
--->
-
 <?php
     session_start();
     if($_SERVER["REQUEST_METHOD"] === "POST"){
